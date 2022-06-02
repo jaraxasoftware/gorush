@@ -3,19 +3,15 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: ghcr.io/jaraxasoftware/gorush
+  tag: 0.0.0-DEVELOP-1654173958221
   pullPolicy: IfNotPresent
-
 # define environment variables here as a map of key: value
 env:
-
 # enable this flag to use knative serve to deploy the app
 knativeDeploy: false
-
 deployAnnotations:
   wave.pusher.com/update-on-config-change: "true"
-
 service:
   name: gorush
   type: ClusterIP
@@ -44,10 +40,8 @@ readinessProbe:
   periodSeconds: 10
   successThreshold: 1
   timeoutSeconds: 1
-
 certs:
   name: gorush-certs
-
 brand:
   default:
     ios:
@@ -71,4 +65,3 @@ brand:
       api_key: "AAAA5SkSuNY:APA91bHz6pSYn4c4VelZ5gcgM3QlVudOpUOdSNDgJvN57wnmlDrihsxoUnowmDYRMDSPoWMweOmfhK9pqoHOMEJDw27ziOqs4VJEj2HIGPynPXlRfKG23soZORkq59bWsh4bsbas5e1G"
     web:
       api_key: "AAAAFi_MV1M:APA91bH3vk2pietQemN3UG9AYDph-3ktQVqZGuy_zhPrHKO5o68_TbiwB62Av5vK5w2g0NyNvNYVpoCtygSFGY8uFjg3pNnAzzzSKwSPi-0rhmzRNKwxmJzM08aMWpOGtUOY4VC3gndOumNaoYUDfg5CkaGFuih7AA"
-  
