@@ -14,21 +14,18 @@ spec:
           env: 
           - name: ENVIRONMENT
             value: dkv-staging         
-          image: uses:jenkins-x/jx3-pipeline-catalog/tasks/go/release.yaml@versionStream
+          image: uses:jaraxasoftware/jaraxa-pipeline-catalog/tasks/go/release.yaml@versionStream
           name: ""
           resources:
             # override limits for all containers here
             limits: {}
           workingDir: /workspace/source
         steps:
-        - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
+        - image: uses:jaraxasoftware/jaraxa-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
           name: ""
           resources: {}
-        - name: next-version
-          resources: {}
-          script: |
-            #!/usr/bin/env sh
-            echo $(jx-release-version)-UAT-$BUILD_ID > VERSION        
+        - name: next-version-uat
+          resources: {}  
         - name: jx-variables
           resources: {}
         - name: build-make-build
@@ -40,7 +37,7 @@ spec:
           resources: {}
         - name: build-container-build
           resources: {}
-        - name: promote-changelog
+        - name: promote-changelog-uat
           resources: {}
         - name: promote-helm-release
           resources: {}
