@@ -14,14 +14,14 @@ spec:
           env: 
           - name: ENVIRONMENT
             value: dkv-prod         
-          image: uses:jenkins-x/jx3-pipeline-catalog/tasks/go/release.yaml@versionStream
+          image: uses:jaraxasoftware/jaraxa-pipeline-catalog/tasks/go/release.yaml@versionStream
           name: ""
           resources:
             # override limits for all containers here
             limits: {}
           workingDir: /workspace/source
         steps:
-        - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
+        - image: uses:jaraxasoftware/jaraxa-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
           name: ""
           resources: {}
         - name: next-version
