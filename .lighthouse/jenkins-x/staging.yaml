@@ -6,8 +6,9 @@ metadata:
 spec:
   pipelineSpec:
     tasks:
-    - name: from-build-pack
+    - name: build-gorush
       resources: {}
+      retries: 1      
       taskSpec:
         metadata: {}
         stepTemplate:
@@ -25,7 +26,7 @@ spec:
           name: ""
           resources: {}
         - name: next-version-uat
-          resources: {}  
+          resources: {}
         - name: jx-variables
           resources: {}
         - name: build-make-build
@@ -42,11 +43,7 @@ spec:
         - name: promote-helm-release
           resources: {}
         - name: promote-jx-promote
-          resources: {}
-          script: |
-            #!/usr/bin/env sh
-            source .jx/variables.sh
-            jx promote -b --env $ENVIRONMENT --timeout 16m          
+          resources: {}  
   podTemplate: {}
   serviceAccountName: tekton-bot
   timeout: 12h0m0s
