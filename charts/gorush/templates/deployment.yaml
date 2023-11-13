@@ -31,6 +31,10 @@ spec:
 {{ toYaml $.Values.podAnnotations | indent 8 }}
 {{- end }}
     spec:
+    {{- with $.Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}    
       imagePullSecrets:
 {{- range $tval := $.Values.jx.imagePullSecrets }}
       - name: {{ quote $tval }}
@@ -76,6 +80,10 @@ spec:
           periodSeconds: {{ $.Values.livenessProbe.periodSeconds }}
         resources:
 {{ toYaml $.Values.resources | indent 12 }}
+      {{- with $.Values.securityContext }}
+        securityContext:
+          {{- toYaml . | nindent 10 }}
+      {{- end }}
       volumes:
       - name: "{{ $.Chart.Name }}-{{ $name }}"
         configMap:

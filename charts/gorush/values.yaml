@@ -30,6 +30,7 @@ service:
   externalPort: 8088
   internalPort: 8088
   annotations: []
+
 resources:
   limits:
     cpu: 100m
@@ -37,11 +38,13 @@ resources:
   requests:
     cpu: 80m
     memory: 128Mi
+
 probePath: /
 config_dir: /config/
 certs_dir: /certificates/
 certs_dir_voip: /certificates_voip/
 key: key_file
+
 livenessProbe:
   initialDelaySeconds: 60
   periodSeconds: 10
@@ -52,6 +55,19 @@ readinessProbe:
   periodSeconds: 10
   successThreshold: 1
   timeoutSeconds: 1
+
+keda:
+  enabled: false
+  coolDown: 30
+  interval: 30
+  cron:
+    start: 00 15 * * *
+    end: 15 15 * * *
+    timeZone: Europe/Madrid
+
+podSecurityContext: {}
+
+securityContext: {}
 
 certs:
   name: gorush-certs

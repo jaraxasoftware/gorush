@@ -1,0 +1,32 @@
+{{ if and (.Values.keda.enabled) (.Capabilities.APIVersions.Has "keda.sh/v1alpha1") }}
+{{- range $name, $val := .Values.brand }}
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ include "gorush.fullname" $ }}-{{ $name }}-to-zero
+  labels:
+{{ include "gorush.labels" $ | indent 4 }}  
+spec:
+  cooldownPeriod: {{ $.Values.keda.coolDown }}
+  maxReplicaCount: {{ $.Values.replicaCount }}
+  minReplicaCount: {{ $.Values.keda.minReplicas | default 0 }}
+  pollingInterval: {{ $.Values.keda.interval }}
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "gorush.fullname" $ }}-{{ $name }}
+  fallback:
+    failureThreshold: {{ $.Values.keda.failureThreshold | default 3 }}
+    replicas: {{ $.Values.replicaCount }}
+  advanced:
+    restoreToOriginalReplicaCount: true      
+  triggers:
+  - metadata:
+      desiredReplicas: "{{ $.Values.replicaCount }}"
+      start: {{ $.Values.keda.cron.start }}
+      end: {{ $.Values.keda.cron.end }}
+      timezone: {{ $.Values.keda.cron.timeZone }}
+    type: cron
+{{- end }}
+{{ end }}
