@@ -31,13 +31,13 @@ service:
   internalPort: 8088
   annotations: []
 
-resources:
-  limits:
-    cpu: 100m
-    memory: 256Mi
-  requests:
-    cpu: 80m
-    memory: 128Mi
+resources: {}
+  #limits:
+  #  cpu: 100m
+  #  memory: 256Mi
+  #requests:
+  #  cpu: 80m
+  #  memory: 128Mi
 
 probePath: /
 config_dir: /config/
