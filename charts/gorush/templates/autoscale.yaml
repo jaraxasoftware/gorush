@@ -6,7 +6,11 @@ kind: ScaledObject
 metadata:
   name: {{ include "gorush.fullname" $ }}-{{ $name }}-to-zero
   labels:
-{{ include "gorush.labels" $ | indent 4 }}  
+{{ include "gorush.labels" $ | indent 4 }}
+{{- with $.Values.keda.annotations }}
+  annotations:
+{{- toYaml . | nindent 4 }}
+{{- end }} 
 spec:
   cooldownPeriod: {{ $.Values.keda.coolDown }}
   maxReplicaCount: {{ $.Values.replicaCount }}
