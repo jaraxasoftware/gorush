@@ -32,5 +32,8 @@ spec:
       end: {{ $.Values.keda.cron.end }}
       timezone: {{ $.Values.keda.cron.timeZone }}
     type: cron
+{{- with $.Values.keda.extraTriggers }}
+  {{- . | nindent 2 }}  
+{{- end }}    
 {{- end }}
 {{ end }}
