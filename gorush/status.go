@@ -4,14 +4,14 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/netscale-technologies/gorush/storage/badger"
+	"github.com/jaraxasoftware/gorush/storage/badger"
 
 	"github.com/gin-gonic/gin"
-	"github.com/netscale-technologies/gorush/storage/boltdb"
-	"github.com/netscale-technologies/gorush/storage/buntdb"
-	"github.com/netscale-technologies/gorush/storage/leveldb"
-	"github.com/netscale-technologies/gorush/storage/memory"
-	"github.com/netscale-technologies/gorush/storage/redis"
+	"github.com/jaraxasoftware/gorush/storage/boltdb"
+	"github.com/jaraxasoftware/gorush/storage/buntdb"
+	"github.com/jaraxasoftware/gorush/storage/leveldb"
+	"github.com/jaraxasoftware/gorush/storage/memory"
+	"github.com/jaraxasoftware/gorush/storage/redis"
 	"github.com/thoas/stats"
 )
 

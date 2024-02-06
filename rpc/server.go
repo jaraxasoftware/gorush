@@ -5,8 +5,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/netscale-technologies/gorush/gorush"
-	"github.com/netscale-technologies/gorush/rpc/proto"
+	"github.com/jaraxasoftware/gorush/gorush"
+	"github.com/jaraxasoftware/gorush/rpc/proto"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

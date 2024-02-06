@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/buger/jsonparser"
-	"github.com/netscale-technologies/gorush/config"
+	"github.com/jaraxasoftware/gorush/config"
 	"github.com/sideshow/apns2"
 	"github.com/stretchr/testify/assert"
 )
