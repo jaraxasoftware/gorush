@@ -6,3 +6,13 @@ image:
   repository: "{{ requiredEnv "DOCKER_REGISTRY" }}/{{ requiredEnv "DOCKER_REGISTRY_ORG" }}/{{ requiredEnv "APP_NAME" }}"
   tag: "{{ requiredEnv "VERSION" }}"
   pullPolicy: "Always"
+
+brand:
+  default:
+    vapid:
+      publicKey: "BMw9F4_j9GwdbdtJhjNtG1FMnroo3eQkXhCkQQZ6t84UN45vRaW8GF-KJl8VwUl5xGOxU3FeG59r-rppBtVrhOA"
+      privateKey: "bu8A3XDLXeaYcRbdFfQ2tST57oS3DAkCCCcVPzgBmic"            
+  qcplus:
+    vapid:
+      publicKey: "BMw9F4_j9GwdbdtJhjNtG1FMnroo3eQkXhCkQQZ6t84UN45vRaW8GF-KJl8VwUl5xGOxU3FeG59r-rppBtVrhOA"
+      privateKey: "bu8A3XDLXeaYcRbdFfQ2tST57oS3DAkCCCcVPzgBmic"

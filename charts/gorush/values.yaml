@@ -82,8 +82,9 @@ brand:
       max_concurrent_pushes: 100
     android:
       api_key: "AAAA4SKa3Qo:APA91bFTRMA4mOpaNcLRfXEDMBRtqUmfHty9R0zBH7wLVygwbxs3fsIMwIqyULRziLyIteF9m0ITbM4x9Cs7Jez18nVplffs65kbwDjwDYNgSl0hjAos79MBh9grIV7CP29XlkHlU5Eb"
-    web:
-      api_key: "AAAA4SKa3Qo:APA91bFTRMA4mOpaNcLRfXEDMBRtqUmfHty9R0zBH7wLVygwbxs3fsIMwIqyULRziLyIteF9m0ITbM4x9Cs7Jez18nVplffs65kbwDjwDYNgSl0hjAos79MBh9grIV7CP29XlkHlU5Eb"
+    vapid:
+      publicKey: "BMw9F4_j9GwdbdtJhjNtG1FMnroo3eQkXhCkQQZ6t84UN45vRaW8GF-KJl8VwUl5xGOxU3FeG59r-rppBtVrhOA"
+      privateKey: "bu8A3XDLXeaYcRbdFfQ2tST57oS3DAkCCCcVPzgBmic"            
   qcplus:
     ios:
       key_type: "p12"
@@ -93,8 +94,9 @@ brand:
       max_concurrent_pushes: 100
     android:
       api_key: "AAAA5SkSuNY:APA91bHz6pSYn4c4VelZ5gcgM3QlVudOpUOdSNDgJvN57wnmlDrihsxoUnowmDYRMDSPoWMweOmfhK9pqoHOMEJDw27ziOqs4VJEj2HIGPynPXlRfKG23soZORkq59bWsh4bsbas5e1G"
-    web:
-      api_key: "AAAAFi_MV1M:APA91bH3vk2pietQemN3UG9AYDph-3ktQVqZGuy_zhPrHKO5o68_TbiwB62Av5vK5w2g0NyNvNYVpoCtygSFGY8uFjg3pNnAzzzSKwSPi-0rhmzRNKwxmJzM08aMWpOGtUOY4VC3gndOumNaoYUDfg5CkaGFuih7AA"
+    vapid:
+      publicKey: "BMw9F4_j9GwdbdtJhjNtG1FMnroo3eQkXhCkQQZ6t84UN45vRaW8GF-KJl8VwUl5xGOxU3FeG59r-rppBtVrhOA"
+      privateKey: "bu8A3XDLXeaYcRbdFfQ2tST57oS3DAkCCCcVPzgBmic"
 
 # custom ingress annotations on this service
 ingress:
