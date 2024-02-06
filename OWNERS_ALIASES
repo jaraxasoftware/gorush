@@ -1,6 +1,12 @@
 aliases:
-- netscale-technologies
-best-approvers:
-- netscale-technologies
+- jaraxasoftware
 best-reviewers:
-- netscale-technologies
+- jrx-amf
+- jrx-sjg
+- jrx-jsj
+- jrx-vag
+best-approvers:
+- jrx-amf
+- jrx-sjg
+- jrx-jsj
+- jrx-vag

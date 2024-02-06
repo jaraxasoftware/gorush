@@ -94,7 +94,12 @@ data:
 
         web:
           enabled: true
-          apikey: "{{ $val.web.api_key }}"
+          {{- if $val.vapid }}
+          vapid_public_key: {{ quote $val.vapid.publicKey }}
+          vapid_private_key: {{ quote $val.vapid.privateKey }}     
+          {{- else }}
+          apikey: {{ quote $val.web.api_key }}
+          {{- end }}
           max_retry: 0
 
         log:

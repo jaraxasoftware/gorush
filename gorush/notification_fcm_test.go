@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/appleboy/go-fcm"
-	"github.com/netscale-technologies/gorush/config"
+	"github.com/jaraxasoftware/gorush/config"
 	"github.com/stretchr/testify/assert"
 )
 

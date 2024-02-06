@@ -27,8 +27,11 @@ spec:
             requests:
               cpu: 400m
               memory: 600Mi
-        - name: build-make-linux
+        - name: build-make-build
           resources: {}
+          script: |
+            #/bin/sh
+            make build_linux_amd64
         - name: check-registry
           resources: {}
         - name: build-container-build

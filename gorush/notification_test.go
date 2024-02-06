@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/netscale-technologies/gorush/config"
+	"github.com/jaraxasoftware/gorush/config"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -38,7 +38,8 @@ func TestSenMultipleNotifications(t *testing.T) {
 	androidToken := os.Getenv("ANDROID_TEST_TOKEN")
 
 	PushConf.Web.Enabled = true
-	PushConf.Web.APIKey = os.Getenv("ANDROID_API_KEY")
+	PushConf.Web.VAPIDPrivateKey = os.Getenv("VAPID_PRIVATE_KEY")
+	PushConf.Web.VAPIDPublicKey = os.Getenv("VAPID_PUBLIC_KEY")
 	err2 := InitWebClient()
 	assert.Nil(t, err2)
 
@@ -124,7 +125,8 @@ func TestSyncModeForNotifications(t *testing.T) {
 	androidToken := os.Getenv("ANDROID_TEST_TOKEN")
 
 	PushConf.Web.Enabled = true
-	PushConf.Web.APIKey = os.Getenv("ANDROID_API_KEY")
+	PushConf.Web.VAPIDPrivateKey = os.Getenv("VAPID_PRIVATE_KEY")
+	PushConf.Web.VAPIDPublicKey = os.Getenv("VAPID_PUBLIC_KEY")
 	err2 := InitWebClient()
 	assert.Nil(t, err2)
 

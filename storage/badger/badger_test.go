@@ -3,7 +3,7 @@ package badger
 import (
 	"testing"
 
-	c "github.com/netscale-technologies/gorush/config"
+	c "github.com/jaraxasoftware/gorush/config"
 	"github.com/stretchr/testify/assert"
 )
 

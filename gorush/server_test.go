@@ -14,7 +14,7 @@ import (
 	"github.com/appleboy/gofight/v2"
 	"github.com/buger/jsonparser"
 	"github.com/gin-gonic/gin"
-	"github.com/netscale-technologies/gorush/config"
+	"github.com/jaraxasoftware/gorush/config"
 	"github.com/stretchr/testify/assert"
 )
 

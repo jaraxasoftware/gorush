@@ -3,7 +3,7 @@ package gorush
 import (
 	"testing"
 
-	"github.com/netscale-technologies/gorush/config"
+	"github.com/jaraxasoftware/gorush/config"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )

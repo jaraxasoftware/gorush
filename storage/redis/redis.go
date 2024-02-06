@@ -3,8 +3,8 @@ package redis
 import (
 	"strconv"
 
-	"github.com/netscale-technologies/gorush/config"
-	"github.com/netscale-technologies/gorush/storage"
+	"github.com/jaraxasoftware/gorush/config"
+	"github.com/jaraxasoftware/gorush/storage"
 
 	"github.com/go-redis/redis/v7"
 )

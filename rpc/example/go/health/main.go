@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/netscale-technologies/gorush/rpc"
+	"github.com/jaraxasoftware/gorush/rpc"
 
 	"google.golang.org/grpc"
 )

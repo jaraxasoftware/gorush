@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEPLOY_ACCOUNT="netscale-technologies"
+DEPLOY_ACCOUNT="jaraxasoftware"
 EXECUTABLE="gorush"
 CONTAINER=js-gorush
 

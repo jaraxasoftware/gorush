@@ -7,7 +7,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/netscale-technologies/gorush/config"
+	"github.com/jaraxasoftware/gorush/config"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -31,7 +31,8 @@ func TestMissingWebAPIKey(t *testing.T) {
 	PushConf, _ = config.LoadConf("")
 
 	PushConf.Web.Enabled = true
-	PushConf.Web.APIKey = ""
+	PushConf.Web.VAPIDPrivateKey = ""
+	PushConf.Web.VAPIDPublicKey = ""
 
 	err := CheckPushConf()
 
@@ -43,7 +44,8 @@ func TestPushToWebWrongSubscription(t *testing.T) {
 	PushConf, _ = config.LoadConf("")
 
 	PushConf.Web.Enabled = true
-	PushConf.Web.APIKey = os.Getenv("ANDROID_API_KEY")
+	PushConf.Web.VAPIDPrivateKey = os.Getenv("VAPID_PRIVATE_KEY")
+	PushConf.Web.VAPIDPublicKey = os.Getenv("VAPID_PUBLIC_KEY")
 
 	req := PushNotification{
 		Subscriptions: []Subscription{{"aaaaaa", "bbbbbb", "cccccc"}},
