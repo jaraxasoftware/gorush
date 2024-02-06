@@ -8,7 +8,15 @@ helmDefaults:
 repositories:
 - name: jx3
   url: https://jenkins-x-charts.github.io/repo
+- name: gh
+  url: https://chartmuseum-jx3.develop.jaraxa.systems  
 releases:
+- chart: gh/certs
+  version: 0.0.89
+  name: certs
+  values:
+  - 00_certs-values.yaml
+  - jx-values.yaml
 - chart: jx3/jx-verify
   name: jx-verify
   namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
