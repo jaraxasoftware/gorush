@@ -8,7 +8,6 @@ spec:
     tasks:
     - name: build-gorush
       resources: {}
-      retries: 1      
       taskSpec:
         metadata: {}
         stepTemplate:
