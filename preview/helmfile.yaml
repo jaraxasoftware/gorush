@@ -22,7 +22,7 @@ releases:
   namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
 - chart: '../charts/{{ requiredEnv "APP_NAME" }}'
   name: preview
-  wait: true
+  wait: false
   createNamespace: true
   namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
   values:
