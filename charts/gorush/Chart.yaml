@@ -2,8 +2,8 @@ apiVersion: v2
 name: gorush
 description: Jaraxa implementation of Gorush on Kubernetes
 home: https://github.com/jaraxasoftware/gorush/tree/staging/charts/gorush
-version: 0.0.0-SNAPSHOT
-appVersion: 0.0.0-SNAPSHOT
+version: 1.15.1-UAT-1712054378777
+appVersion: 1.15.1-UAT-1712054378777
 icon: https://jaraxa-public.s3.eu-central-1.amazonaws.com/LogoJRX-web.svg
 maintainers:
 - email: sergio.jurado@jaraxa.com
