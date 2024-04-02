@@ -1,4 +1,4 @@
-DUMMY := 1
+DUMMY := 0
 DIST := dist
 EXECUTABLE := gorush
 
