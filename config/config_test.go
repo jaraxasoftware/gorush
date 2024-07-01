@@ -252,6 +252,6 @@ func TestLoadConfigFromEnv(t *testing.T) {
 
 func TestLoadWrongDefaultYAMLConfig(t *testing.T) {
 	defaultConf = []byte(`a`)
-	_, err := LoadConf("")
+	_, err := LoadConf()
 	assert.Error(t, err)
 }

@@ -2,26 +2,14 @@
 
 A push notification micro server using [Gin](https://github.com/gin-gonic/gin) framework written in Go (Golang) and see the [demo app](https://github.com/appleboy/flutter-gorush).
 
-<<<<<<< HEAD
-[![GoDoc](https://godoc.org/github.com/appleboy/gorush?status.svg)](https://godoc.org/github.com/appleboy/gorush)
-[![Build Status](https://cloud.drone.io/api/badges/appleboy/gorush/status.svg)](https://cloud.drone.io/appleboy/gorush)
-[![Build status](https://ci.appveyor.com/api/projects/status/ka4hvplssp1q2s5u?svg=true)](https://ci.appveyor.com/project/appleboy/gorush-fp5dh)
-=======
 [![Run Lint and Testing](https://github.com/appleboy/gorush/actions/workflows/testing.yml/badge.svg)](https://github.com/appleboy/gorush/actions/workflows/testing.yml)
 [![GoDoc](https://godoc.org/github.com/appleboy/gorush?status.svg)](https://pkg.go.dev/github.com/appleboy/gorush)
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
 [![codecov](https://codecov.io/gh/appleboy/gorush/branch/master/graph/badge.svg)](https://codecov.io/gh/appleboy/gorush)
 [![Go Report Card](https://goreportcard.com/badge/github.com/appleboy/gorush)](https://goreportcard.com/report/github.com/appleboy/gorush)
 [![codebeat badge](https://codebeat.co/badges/0a4eff2d-c9ac-46ed-8fd7-b59942983390)](https://codebeat.co/projects/github-com-appleboy-gorush)
 [![Docker Pulls](https://img.shields.io/docker/pulls/appleboy/gorush.svg)](https://hub.docker.com/r/appleboy/gorush/)
-<<<<<<< HEAD
-[![microbadger](https://images.microbadger.com/badges/image/appleboy/gorush.svg)](https://microbadger.com/images/appleboy/gorush "Get your own image badge on microbadger.com")
-[![Release](https://github-release-version.herokuapp.com/github/appleboy/gorush/release.svg?style=flat)](https://github.com/appleboy/gorush/releases/latest)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8ab14c9f-44fd-4d9a-8bba-f73f76d253b1/deploy-status)](https://app.netlify.com/sites/gorush/deploys)
-=======
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8ab14c9f-44fd-4d9a-8bba-f73f76d253b1/deploy-status)](https://app.netlify.com/sites/gorush/deploys)
 [![Financial Contributors on Open Collective](https://opencollective.com/gorush/all/badge.svg?label=financial+contributors)](https://opencollective.com/gorush)
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
 
 ## Contents
 
@@ -31,20 +19,14 @@ A push notification micro server using [Gin](https://github.com/gin-gonic/gin) f
   - [Features](#features)
   - [Memory Usage](#memory-usage)
   - [Basic Usage](#basic-usage)
-<<<<<<< HEAD
-=======
     - [Install from homebrew](#install-from-homebrew)
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
     - [Download a binary](#download-a-binary)
     - [Install from source](#install-from-source)
       - [Prerequisite Tools](#prerequisite-tools)
       - [Fetch from GitHub](#fetch-from-github)
     - [Command Usage](#command-usage)
     - [Send Android notification](#send-android-notification)
-<<<<<<< HEAD
-=======
     - [Send Huawei (HMS) notification](#send-huawei-hms-notification)
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
     - [Send iOS notification](#send-ios-notification)
     - [Send Android or iOS notifications using Firebase](#send-android-or-ios-notifications-using-firebase)
   - [Run gorush web server](#run-gorush-web-server)
@@ -58,17 +40,11 @@ A push notification micro server using [Gin](https://github.com/gin-gonic/gin) f
     - [iOS alert payload](#ios-alert-payload)
     - [iOS sound payload](#ios-sound-payload)
     - [Android notification payload](#android-notification-payload)
-<<<<<<< HEAD
     - [Web Push subscription](#web-push-subscription)
-    - [iOS Example](#ios-example)
-    - [Android Example](#android-example)
-    - [Web Example](#web-example)
-=======
     - [Huawei notification](#huawei-notification)
     - [iOS Example](#ios-example)
     - [Android Example](#android-example)
     - [Huawei Example](#huawei-example)
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
     - [Response body](#response-body)
   - [Run gRPC service](#run-grpc-service)
   - [Run gorush in Docker](#run-gorush-in-docker)
@@ -76,44 +52,27 @@ A push notification micro server using [Gin](https://github.com/gin-gonic/gin) f
     - [Quick Start](#quick-start)
     - [Create the Service Controller for AWS ELB](#create-the-service-controller-for-aws-elb)
     - [Ingress Controller for AWS ALB](#ingress-controller-for-aws-alb)
-<<<<<<< HEAD
-    - [Clean up the gorush:](#clean-up-the-gorush)
-=======
     - [Clean up the gorush](#clean-up-the-gorush)
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
   - [Run gorush in AWS Lambda](#run-gorush-in-aws-lambda)
     - [Build gorush binary](#build-gorush-binary)
     - [Deploy gorush application](#deploy-gorush-application)
     - [Without an AWS account](#without-an-aws-account)
   - [Stargazers over time](#stargazers-over-time)
   - [License](#license)
-<<<<<<< HEAD
-
-<a href="https://www.buymeacoffee.com/appleboy" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-=======
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
 
 ## Support Platform
 
 - [APNS](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)
 - [FCM](https://firebase.google.com/)
-<<<<<<< HEAD
-
-[A live demo on Netlify](https://gorush.netlify.com/).
-=======
 - [HMS](https://developer.huawei.com/consumer/en/hms/)
 
 [A live demo on Netlify](https://gorush.netlify.app/).
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
 
 ## Features
 
 - Support [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) using [go-fcm](https://github.com/appleboy/go-fcm) library for Android.
 - Support [HTTP/2](https://http2.github.io/) Apple Push Notification Service using [apns2](https://github.com/sideshow/apns2) library.
-<<<<<<< HEAD
-=======
 - Support [HMS Push Service](https://developer.huawei.com/consumer/en/hms/huawei-pushkit) using [go-hms-push](https://github.com/msalihkarakasli/go-hms-push) library for Huawei Devices.
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
 - Support [YAML](https://github.com/go-yaml/yaml) configuration.
 - Support command line to send single Android or iOS notification.
 - Support Web API to send push notification.
@@ -131,17 +90,10 @@ A push notification micro server using [Gin](https://github.com/gin-gonic/gin) f
 - Support send notification through [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) protocol, we use [gRPC](https://grpc.io/) as default framework.
 - Support running in Docker, [Kubernetes](https://kubernetes.io/) or [AWS Lambda](https://aws.amazon.com/lambda) ([Native Support in Golang](https://aws.amazon.com/blogs/compute/announcing-go-support-for-aws-lambda/))
 - Support graceful shutdown that workers and queue have been sent to APNs/FCM before shutdown service.
-<<<<<<< HEAD
-=======
 - Support different Queue as backend like [NSQ](https://nsq.io/), [NATS](https://nats.io/) or [Redis streams](https://redis.io/docs/manual/data-types/streams/), defaut engine is local [Channel](https://tour.golang.org/concurrency/2).
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
 
 See the default [YAML config example](config/testdata/config.yml):
 
-<<<<<<< HEAD
-[embedmd]:# (config/testdata/config.yml yaml)
-=======
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
 ```yaml
 core:
   enabled: true # enable httpd server
@@ -151,11 +103,6 @@ core:
   worker_num: 0 # default worker number is runtime.NumCPU()
   queue_num: 0 # default queue number is 8192
   max_notification: 100
-<<<<<<< HEAD
-  sync: false # set true if you need get error message from fail push notification in API response.
-  feedback_hook_url: "" # set a hook url if you need get error message asynchronously from fail push notification in API response.
-  feedback_timeout: 10 # default is 10 second
-=======
   # set true if you need get error message from fail push notification in API response.
   # It only works when the queue engine is local.
   sync: false
@@ -163,7 +110,6 @@ core:
   feedback_hook_url: ""
   feedback_timeout: 10 # default is 10 second
   feedback_header:
->>>>>>> c4fc985b086d7dc585995f0c6753a3b610ffdae6
   mode: "release"
   ssl: false
   cert_path: "cert.pem"

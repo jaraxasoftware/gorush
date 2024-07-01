@@ -158,12 +158,12 @@ type SectionCore struct {
 	CertBase64      string         `yaml:"cert_base64"`
 	KeyBase64       string         `yaml:"key_base64"`
 	HTTPProxy       string         `yaml:"http_proxy"`
-	CallbackUrl     string         `yaml:"callback_url"`
-	FeedbackURL     string         `yaml:"feedback_hook_url"`
-	FeedbackTimeout int64          `yaml:"feedback_timeout"`
 	PID             SectionPID     `yaml:"pid"`
 	AutoTLS         SectionAutoTLS `yaml:"auto_tls"`
-	FeedbackHeader  []string       `yaml:"feedback_header"`
+
+	FeedbackURL     string   `yaml:"feedback_hook_url"`
+	FeedbackTimeout int64    `yaml:"feedback_timeout"`
+	FeedbackHeader  []string `yaml:"feedback_header"`
 }
 
 // SectionAutoTLS support Let's Encrypt setting.
@@ -375,7 +375,6 @@ func LoadConf(confPath ...string) (*ConfYaml, error) {
 	conf.Core.KeyBase64 = viper.GetString("core.key_base64")
 	conf.Core.MaxNotification = int64(viper.GetInt("core.max_notification"))
 	conf.Core.HTTPProxy = viper.GetString("core.http_proxy")
-	conf.Core.CallbackUrl = viper.GetString("core.callback_url")
 	conf.Core.PID.Enabled = viper.GetBool("core.pid.enabled")
 	conf.Core.PID.Path = viper.GetString("core.pid.path")
 	conf.Core.PID.Override = viper.GetBool("core.pid.override")
