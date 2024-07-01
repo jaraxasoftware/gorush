@@ -37,6 +37,9 @@ release
 coverage.txt
 
 certificates/*
-*config.yml
+config.yml
 
 .vscode
+node_modules
+dist/
+.idea
