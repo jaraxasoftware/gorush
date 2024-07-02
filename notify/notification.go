@@ -156,7 +156,9 @@ func CheckMessage(req *PushNotification) error {
 	}
 
 	// if the message is a topic, the tokens field is not required
-	if !req.IsTopic() && len(req.Tokens) == 0 {
+	if !req.IsTopic() &&
+		((req.Platform == core.PlatFormWeb && len(req.Subscriptions) == 0) ||
+			(req.Platform != core.PlatFormWeb && len(req.Tokens) == 0)) {
 		return errors.New("tokens must not be nil or empty")
 	}
 
@@ -169,10 +171,16 @@ func CheckMessage(req *PushNotification) error {
 		}
 	case
 		core.PlatFormAndroid,
-		core.PlatFormHuawei,
-		core.PlatFormWeb:
+		core.PlatFormHuawei:
 		if len(req.Tokens) > 500 {
 			msg = "tokens must not contain more than 500 elements"
+			logx.LogAccess.Debug(msg)
+			return errors.New(msg)
+		}
+	case
+		core.PlatFormWeb:
+		if len(req.Subscriptions) > 500 {
+			msg = "subscriptions must not contain more than 500 elements"
 			logx.LogAccess.Debug(msg)
 			return errors.New(msg)
 		}
@@ -197,8 +205,8 @@ func SetProxy(proxy string) error {
 
 // CheckPushConf provide check your yml config.
 func CheckPushConf(cfg *config.ConfYaml) error {
-	if !cfg.Ios.Enabled && !cfg.Android.Enabled && !cfg.Huawei.Enabled {
-		return errors.New("please enable iOS, Android or Huawei config in yml config")
+	if !cfg.Ios.Enabled && !cfg.Android.Enabled && !cfg.Huawei.Enabled && !cfg.Web.Enabled {
+		return errors.New("please enable iOS, Android, Web or Huawei config in yml config")
 	}
 
 	if cfg.Ios.Enabled {

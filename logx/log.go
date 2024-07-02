@@ -18,6 +18,7 @@ var (
 	yellow = string([]byte{27, 91, 57, 55, 59, 52, 51, 109})
 	red    = string([]byte{27, 91, 57, 55, 59, 52, 49, 109})
 	blue   = string([]byte{27, 91, 57, 55, 59, 52, 52, 109})
+	purple = string([]byte{27, 91, 57, 55, 59, 52, 53, 109})
 	reset  = string([]byte{27, 91, 48, 109})
 )
 
@@ -122,6 +123,8 @@ func colorForPlatForm(platform int) string {
 		return blue
 	case core.PlatFormAndroid:
 		return yellow
+	case core.PlatFormWeb:
+		return purple
 	case core.PlatFormHuawei:
 		return green
 	default:
@@ -135,6 +138,8 @@ func typeForPlatForm(platform int) string {
 		return "ios"
 	case core.PlatFormAndroid:
 		return "android"
+	case core.PlatFormWeb:
+		return "web"
 	case core.PlatFormHuawei:
 		return "huawei"
 	default:

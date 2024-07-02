@@ -272,6 +272,10 @@ func handleNotification(
 			if !cfg.Android.Enabled {
 				continue
 			}
+		case core.PlatFormWeb:
+			if !cfg.Web.Enabled {
+				continue
+			}
 		case core.PlatFormHuawei:
 			if !cfg.Huawei.Enabled {
 				continue
@@ -310,9 +314,9 @@ func handleNotification(
 			wg.Done()
 		}
 
-		count += len(notification.Tokens)
+		count += len(notification.Tokens) + len(notification.Subscriptions)
 		// Count topic message
-		if notification.Topic != "" {
+		if notification.Topic != "" && len(notification.Tokens) == 0 {
 			count++
 		}
 	}
