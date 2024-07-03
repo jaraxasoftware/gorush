@@ -76,6 +76,7 @@ certs:
 
 brand:
   default:
+    tag: 1.16.0
     ios:
       password: "Dresd3Ka-uBe!"
       key_file: "dkv-push.pem"
@@ -89,11 +90,11 @@ brand:
     ios:
       key_type: "p12"
       password: "talentomobile"
-      key_file: "dkv-talento-qcplus-preprod-push.p12"
+      key_file: "dkv-push-qcplus-preprod-push.p12"
       production: false
       max_concurrent_pushes: 100
     android:
-      api_key: "AAAA5SkSuNY:APA91bHz6pSYn4c4VelZ5gcgM3QlVudOpUOdSNDgJvN57wnmlDrihsxoUnowmDYRMDSPoWMweOmfhK9pqoHOMEJDw27ziOqs4VJEj2HIGPynPXlRfKG23soZORkq59bWsh4bsbas5e1G"
+      key_file: "gorush-certs-dkv-push-firebase-v2.json"
     vapid:
       publicKey: "BMw9F4_j9GwdbdtJhjNtG1FMnroo3eQkXhCkQQZ6t84UN45vRaW8GF-KJl8VwUl5xGOxU3FeG59r-rppBtVrhOA"
       privateKey: "bu8A3XDLXeaYcRbdFfQ2tST57oS3DAkCCCcVPzgBmic"

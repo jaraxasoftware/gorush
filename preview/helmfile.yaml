@@ -9,7 +9,7 @@ repositories:
   url: https://chartmuseum-jx3.develop.jaraxa.systems  
 releases:
 - chart: gh/certs
-  version: 0.0.89
+  version: 0.0.92
   name: certs
   namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'  
   values:

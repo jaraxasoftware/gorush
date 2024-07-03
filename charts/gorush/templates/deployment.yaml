@@ -48,7 +48,11 @@ spec:
 {{- end }}    
       containers:
       - name: {{ $.Chart.Name }}
-        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+        {{- if not $val.tag }}
+        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"       
+        {{- else }}
+        image: "{{ $.Values.image.repository }}:{{ $val.tag }}"
+        {{- end }}
         imagePullPolicy: {{ $.Values.image.pullPolicy }}
         env:
 {{- range $pkey, $pval := $.Values.env }}
@@ -59,13 +63,13 @@ spec:
         - name: "{{ $.Chart.Name }}-{{ $name }}"
           mountPath: {{ $.Values.config_dir }}
 {{- if $val.ios.key_file }}               
-        - name: "{{ $.Values.certs.name }}-{{ $name }}"
+        - name: "{{ $.Values.certs.name }}-{{ $name }}-ios"
           mountPath: {{ $.Values.certs_dir }}
-{{- end }}           
-{{- if $val.ios.voip }} 
-        - name: "{{ $.Values.certs.name }}-{{ $name }}-voip"
-          mountPath: {{ $.Values.certs_dir }}voip/
-{{- end }}                       
+{{- end }}
+{{- if $val.android.key_file }}               
+        - name: "{{ $.Values.certs.name }}-{{ $name }}-android"
+          mountPath: {{ $.Values.certs_dir }}
+{{- end }}                 
         ports:
         - containerPort: {{ $.Values.service.internalPort }}
         readinessProbe:
@@ -92,12 +96,12 @@ spec:
       - name: "{{ $.Values.certs.name }}-{{ $name }}"
         secret:
           secretName: {{ $.Values.certs.name }}-{{ $val.ios.key_file }}
-{{- end }}        
-{{- if $val.ios.voip }}          
-      - name: "{{ $.Values.certs.name }}-{{ $name }}-voip"
+{{- end }}
+{{- if $val.android.key_file }}          
+      - name: "{{ $.Values.certs.name }}-{{ $name }}"
         secret:
-          secretName: {{ $.Values.certs.name }}-{{ $val.ios.voip.key_file }}
-{{- end }}        
+          secretName: {{ $.Values.certs.name }}-{{ $val.android.key_file }}
+{{- end }}   
       terminationGracePeriodSeconds: {{ $.Values.terminationGracePeriodSeconds }}      
 {{- end }}
 {{- end }}
