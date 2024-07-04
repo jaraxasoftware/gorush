@@ -55,7 +55,7 @@ data:
 
         android:
           enabled: true
-{{- if or (eq $name "qcplus") (eq $name "allianz") }}
+{{- if $val.android.key_path }}
           key_path: "{{ $val.android.key_path }}"
 {{- else }}
           apikey: "{{ $val.android.api_key }}"
