@@ -55,8 +55,8 @@ data:
 
         android:
           enabled: true
-{{- if $val.android.key_path }}
-          key_path: "{{ $val.android.key_path }}"
+{{- if $val.android.key_file }}
+          key_path: "{{ $val.android.key_file }}"
 {{- else }}
           apikey: "{{ $val.android.api_key }}"
 {{- end }}
