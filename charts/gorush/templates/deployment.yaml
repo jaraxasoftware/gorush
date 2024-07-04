@@ -93,12 +93,12 @@ spec:
         configMap:
           name: "{{ $.Chart.Name }}-{{ $name }}"
 {{- if $val.ios.key_file }}          
-      - name: "{{ $.Values.certs.name }}-{{ $name }}"
+      - name: "{{ $.Values.certs.name }}-{{ $name }}-ios"
         secret:
           secretName: {{ $.Values.certs.name }}-{{ $val.ios.key_file }}
 {{- end }}
 {{- if $val.android.key_file }}          
-      - name: "{{ $.Values.certs.name }}-{{ $name }}"
+      - name: "{{ $.Values.certs.name }}-{{ $name }}-android"
         secret:
           secretName: {{ $.Values.certs.name }}-{{ $val.android.key_file }}
 {{- end }}   
