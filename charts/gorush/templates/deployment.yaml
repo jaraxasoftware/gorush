@@ -64,11 +64,15 @@ spec:
           mountPath: {{ $.Values.config_dir }}
 {{- if $val.ios.key_file }}               
         - name: "{{ $.Values.certs.name }}-{{ $name }}-ios"
-          mountPath: {{ $.Values.certs_dir }}
+          mountPath: {{ $.Values.certs_dir }}{{ $val.ios.key_file }}
+          subPath: {{ $val.ios.key_file }}
+          readOnly: true          
 {{- end }}
 {{- if $val.android.key_file }}               
         - name: "{{ $.Values.certs.name }}-{{ $name }}-android"
-          mountPath: {{ $.Values.certs_dir }}
+          mountPath: {{ $.Values.certs_dir }}{{ $val.android.key_file }}
+          subPath: {{ $val.android.key_file }}
+          readOnly: true          
 {{- end }}                 
         ports:
         - containerPort: {{ $.Values.service.internalPort }}
