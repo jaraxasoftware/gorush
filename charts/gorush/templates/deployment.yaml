@@ -9,8 +9,8 @@ metadata:
   labels:
     draft: {{ default "draft-app" $.Values.draft }}
     chart: "{{ $.Chart.Name }}-{{ $.Chart.Version | replace "+" "_" }}"
-{{- if $.Values.deployAnnotations }}    
-  annotations:      
+{{- if $.Values.deployAnnotations }}
+  annotations:
 {{ toYaml $.Values.deployAnnotations | indent 4 }}
 {{- end }}
 spec:
@@ -26,30 +26,30 @@ spec:
         draft: {{ default "draft-app" $.Values.draft }}
         app: {{ $.Chart.Name }}
         name: "{{ $.Chart.Name }}-{{ $name }}"
-{{- if $.Values.podAnnotations }}      
-      annotations:   
+{{- if $.Values.podAnnotations }}
+      annotations:
 {{ toYaml $.Values.podAnnotations | indent 8 }}
 {{- end }}
     spec:
     {{- with $.Values.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
-    {{- end }}    
+    {{- end }}
       imagePullSecrets:
 {{- range $tval := $.Values.jx.imagePullSecrets }}
       - name: {{ quote $tval }}
-{{- end }}    
+{{- end }}
 {{- if $.Values.serviceAccount.enabled }}
 {{- if $.Values.serviceAccount.name }}
       serviceAccountName: {{ $.Values.serviceAccount.name }}
 {{- else }}
       serviceAccountName: {{ $.Chart.Name }}
 {{- end }}
-{{- end }}    
+{{- end }}
       containers:
       - name: {{ $.Chart.Name }}
         {{- if not $val.tag }}
-        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"       
+        image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
         {{- else }}
         image: "{{ $.Values.image.repository }}:{{ $val.tag }}"
         {{- end }}
@@ -62,18 +62,18 @@ spec:
         volumeMounts:
         - name: "{{ $.Chart.Name }}-{{ $name }}"
           mountPath: {{ $.Values.config_dir }}
-{{- if $val.ios.key_file }}               
+{{- if $val.ios.key_file }}
         - name: "{{ $.Values.certs.name }}-{{ $name }}-ios"
           mountPath: {{ $.Values.certs_dir }}{{ $val.ios.key_file }}
           subPath: {{ $val.ios.key_file }}
-          readOnly: true          
+          readOnly: true
 {{- end }}
-{{- if $val.android.key_file }}               
+{{- if $val.android.key_file }}
         - name: "{{ $.Values.certs.name }}-{{ $name }}-android"
           mountPath: {{ $.Values.certs_dir }}{{ $val.android.key_file }}
           subPath: {{ $val.android.key_file }}
-          readOnly: true          
-{{- end }}                 
+          readOnly: true
+{{- end }}
         ports:
         - containerPort: {{ $.Values.service.internalPort }}
         readinessProbe:
@@ -96,16 +96,16 @@ spec:
       - name: "{{ $.Chart.Name }}-{{ $name }}"
         configMap:
           name: "{{ $.Chart.Name }}-{{ $name }}"
-{{- if $val.ios.key_file }}          
+{{- if $val.ios.key_file }}
       - name: "{{ $.Values.certs.name }}-{{ $name }}-ios"
         secret:
           secretName: {{ $.Values.certs.name }}-{{ $val.ios.key_file }}
 {{- end }}
-{{- if $val.android.key_file }}          
+{{- if $val.android.key_file }}
       - name: "{{ $.Values.certs.name }}-{{ $name }}-android"
         secret:
           secretName: {{ $.Values.certs.name }}-{{ $val.android.key_file }}
-{{- end }}   
-      terminationGracePeriodSeconds: {{ $.Values.terminationGracePeriodSeconds }}      
+{{- end }}
+      terminationGracePeriodSeconds: {{ $.Values.terminationGracePeriodSeconds }}
 {{- end }}
 {{- end }}
