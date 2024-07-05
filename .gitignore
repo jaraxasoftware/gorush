@@ -36,7 +36,7 @@ custom
 release
 coverage.txt
 
-certificates/*
+certificates/
 config.yml
 
 .vscode
