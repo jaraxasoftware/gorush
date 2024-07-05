@@ -36,7 +36,10 @@ custom
 release
 coverage.txt
 
-certificates/*
-*config.yml
+certificates/
+config.yml
 
 .vscode
+node_modules
+dist/
+.idea
