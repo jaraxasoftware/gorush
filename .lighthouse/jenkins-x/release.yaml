@@ -28,7 +28,7 @@ spec:
           resources: {}
           script: |
             #!/usr/bin/env sh
-            jx-release-version -debug -previous-version=from-file:Chart.yaml > VERSION          
+            jx-release-version -debug -next-version=from-file:charts/gorush/Chart.yaml -output-format "{{.Major}}.{{.Minor}}.{{.Patch}}"-$BUILD_ID > VERSION
         - name: jx-variables
           resources: {}
         - name: build-make-build
