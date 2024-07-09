@@ -32,6 +32,7 @@ type App struct {
 	TotalCount     int64         `json:"total_count"`
 	Ios            IosStatus     `json:"ios"`
 	Android        AndroidStatus `json:"android"`
+	Web            WebStatus     `json:"web"`
 	Huawei         HuaweiStatus  `json:"huawei"`
 }
 
@@ -43,6 +44,12 @@ type AndroidStatus struct {
 
 // IosStatus is iOS structure
 type IosStatus struct {
+	PushSuccess int64 `json:"push_success"`
+	PushError   int64 `json:"push_error"`
+}
+
+// WebStatus is web structure
+type WebStatus struct {
 	PushSuccess int64 `json:"push_success"`
 	PushError   int64 `json:"push_error"`
 }

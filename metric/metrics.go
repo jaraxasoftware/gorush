@@ -17,6 +17,8 @@ type Metrics struct {
 	IosError       *prometheus.Desc
 	AndroidSuccess *prometheus.Desc
 	AndroidError   *prometheus.Desc
+	WebSuccess     *prometheus.Desc
+	WebError       *prometheus.Desc
 	HuaweiSuccess  *prometheus.Desc
 	HuaweiError    *prometheus.Desc
 	BusyWorkers    *prometheus.Desc
@@ -52,6 +54,16 @@ func NewMetrics(q *queue.Queue) Metrics {
 		AndroidError: prometheus.NewDesc(
 			namespace+"android_fail",
 			"Number of android fail count",
+			nil, nil,
+		),
+		WebSuccess: prometheus.NewDesc(
+			namespace+"web_success",
+			"Number of web success count",
+			nil, nil,
+		),
+		WebError: prometheus.NewDesc(
+			namespace+"web_fail",
+			"Number of web fail count",
 			nil, nil,
 		),
 		HuaweiSuccess: prometheus.NewDesc(
@@ -97,6 +109,8 @@ func (c Metrics) Describe(ch chan<- *prometheus.Desc) {
 	ch <- c.IosError
 	ch <- c.AndroidSuccess
 	ch <- c.AndroidError
+	ch <- c.WebSuccess
+	ch <- c.WebError
 	ch <- c.HuaweiSuccess
 	ch <- c.HuaweiError
 	ch <- c.BusyWorkers
@@ -131,6 +145,16 @@ func (c Metrics) Collect(ch chan<- prometheus.Metric) {
 		c.AndroidError,
 		prometheus.CounterValue,
 		float64(status.StatStorage.GetAndroidError()),
+	)
+	ch <- prometheus.MustNewConstMetric(
+		c.WebSuccess,
+		prometheus.CounterValue,
+		float64(status.StatStorage.GetWebSuccess()),
+	)
+	ch <- prometheus.MustNewConstMetric(
+		c.WebError,
+		prometheus.CounterValue,
+		float64(status.StatStorage.GetWebError()),
 	)
 	ch <- prometheus.MustNewConstMetric(
 		c.HuaweiSuccess,

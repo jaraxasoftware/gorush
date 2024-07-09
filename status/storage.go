@@ -29,6 +29,8 @@ func (s *StateStorage) Reset() {
 	s.store.Set(core.IosErrorKey, 0)
 	s.store.Set(core.AndroidSuccessKey, 0)
 	s.store.Set(core.AndroidErrorKey, 0)
+	s.store.Set(core.WebSuccessKey, 0)
+	s.store.Set(core.WebErrorKey, 0)
 	s.store.Set(core.HuaweiSuccessKey, 0)
 	s.store.Set(core.HuaweiErrorKey, 0)
 }
@@ -56,6 +58,16 @@ func (s *StateStorage) AddAndroidSuccess(count int64) {
 // AddAndroidError record counts of error Android push notification.
 func (s *StateStorage) AddAndroidError(count int64) {
 	s.store.Add(core.AndroidErrorKey, count)
+}
+
+// AddWebSuccess record counts of success Web push notification.
+func (s *StateStorage) AddWebSuccess(count int64) {
+	s.store.Add(core.WebSuccessKey, count)
+}
+
+// AddWebError record counts of error Web push notification.
+func (s *StateStorage) AddWebError(count int64) {
+	s.store.Add(core.WebErrorKey, count)
 }
 
 // AddHuaweiSuccess record counts of success Huawei push notification.
@@ -91,6 +103,16 @@ func (s *StateStorage) GetAndroidSuccess() int64 {
 // GetAndroidError show error counts of Android notification.
 func (s *StateStorage) GetAndroidError() int64 {
 	return s.store.Get(core.AndroidErrorKey)
+}
+
+// GetWebSuccess show success counts of Web notification.
+func (s *StateStorage) GetWebSuccess() int64 {
+	return s.store.Get(core.WebSuccessKey)
+}
+
+// GetWebError show error counts of Web notification.
+func (s *StateStorage) GetWebError() int64 {
+	return s.store.Get(core.WebErrorKey)
 }
 
 // GetHuaweiSuccess show success counts of Huawei notification.

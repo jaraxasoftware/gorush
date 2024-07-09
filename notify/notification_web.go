@@ -8,6 +8,7 @@ import (
 	"github.com/jaraxasoftware/gorush/config"
 	"github.com/jaraxasoftware/gorush/core"
 	"github.com/jaraxasoftware/gorush/logx"
+	"github.com/jaraxasoftware/gorush/status"
 	"github.com/jaraxasoftware/gorush/web"
 )
 
@@ -88,6 +89,9 @@ Retry:
 			logPush(cfg, core.SucceededPush, subscription.Endpoint, req, nil)
 		}
 	}
+
+	status.StatStorage.AddWebSuccess(int64(successCount))
+	status.StatStorage.AddWebError(int64(failureCount))
 
 	if len(newSubscriptions) > 0 && retryCount < maxRetry {
 		retryCount++
