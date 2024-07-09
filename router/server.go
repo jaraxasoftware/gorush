@@ -130,6 +130,8 @@ func appStatusHandler(q *queue.Queue) gin.HandlerFunc {
 		result.Ios.PushError = status.StatStorage.GetIosError()
 		result.Android.PushSuccess = status.StatStorage.GetAndroidSuccess()
 		result.Android.PushError = status.StatStorage.GetAndroidError()
+		result.Web.PushSuccess = status.StatStorage.GetWebSuccess()
+		result.Web.PushError = status.StatStorage.GetWebError()
 		result.Huawei.PushSuccess = status.StatStorage.GetHuaweiSuccess()
 		result.Huawei.PushError = status.StatStorage.GetHuaweiError()
 
@@ -316,7 +318,7 @@ func handleNotification(
 
 		count += len(notification.Tokens) + len(notification.Subscriptions)
 		// Count topic message
-		if notification.Topic != "" && len(notification.Tokens) == 0 {
+		if notification.Topic != "" && notification.Platform == core.PlatFormAndroid {
 			count++
 		}
 	}

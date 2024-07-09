@@ -17,6 +17,12 @@ const (
 	// AndroidErrorKey is key name for android error count of storage
 	AndroidErrorKey = "gorush-android-error-count"
 
+	// WebSuccessKey is key name for webpush success count of storage
+	WebSuccessKey = "gorush-web-success-count"
+
+	// WebErrorKey is key name for webpush error count of storage
+	WebErrorKey = "gorush-web-error-count"
+
 	// HuaweiSuccessKey is key name for huawei success count of storage
 	HuaweiSuccessKey = "gorush-huawei-success-count"
 
