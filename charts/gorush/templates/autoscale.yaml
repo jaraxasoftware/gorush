@@ -10,7 +10,7 @@ metadata:
 {{- with $.Values.keda.annotations }}
   annotations:
 {{- toYaml . | nindent 4 }}
-{{- end }} 
+{{- end }}
 spec:
   cooldownPeriod: {{ $.Values.keda.coolDown }}
   maxReplicaCount: {{ $.Values.replicaCount }}
@@ -24,7 +24,7 @@ spec:
     failureThreshold: {{ $.Values.keda.failureThreshold | default 3 }}
     replicas: {{ $.Values.replicaCount }}
   advanced:
-    restoreToOriginalReplicaCount: true      
+    restoreToOriginalReplicaCount: true
   triggers:
   - metadata:
       desiredReplicas: "{{ $.Values.replicaCount }}"
@@ -33,7 +33,7 @@ spec:
       timezone: {{ $.Values.keda.cron.timeZone }}
     type: cron
 {{- with $.Values.keda.extraTriggers }}
-  {{- . | nindent 2 }}  
-{{- end }}    
+  {{- . | nindent 2 }}
+{{- end }}
 {{- end }}
 {{ end }}

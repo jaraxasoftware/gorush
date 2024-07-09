@@ -6,12 +6,12 @@ repositories:
 - name: jx3
   url: https://jenkins-x-charts.github.io/repo
 - name: gh
-  url: https://chartmuseum-jx3.develop.jaraxa.systems  
+  url: https://chartmuseum-jx3.develop.jaraxa.systems
 releases:
 - chart: gh/certs
-  version: 0.0.89
+  version: 0.0.92
   name: certs
-  namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'  
+  namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
   values:
   - 00_certs-values.yaml
   - jx-values.yaml
