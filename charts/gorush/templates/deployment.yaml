@@ -31,6 +31,7 @@ spec:
 {{ toYaml $.Values.podAnnotations | indent 8 }}
 {{- end }}
     spec:
+      automountServiceAccountToken: {{ $.Values.serviceAccount.tokenAutomount }}    
     {{- with $.Values.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
