@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    open-pull-requests-limit: 0      
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+        applies-to: security-updates        
+      development-dependencies:
+        dependency-type: "development"
+        applies-to: security-updates
+    labels:
+      - "go"
+      - "dependencies"
+      - "security"
+    assignees:
+      - "jrx-jsj"
+      - "jrx-amf"
+      - "jrx-sjg"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 0
+    labels:
+      - "docker"
+      - "infra"
+      - "security"    
+    assignees:
+      - "jrx-jsj"
+      - "jrx-amf"
+      - "jrx-sjg"
+    commit-message:
+      prefix: "chore"
+      include: "scope"   
